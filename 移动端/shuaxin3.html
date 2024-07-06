@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+
+	$(document).ready(function(){
+		var x = 0;
+		var y = 0;
+		var h = 0;
+		// 如果列表处于顶部，开始监控滑动事件
+		if ($(document).scrollTop() == 0){
+
+			// 记录手指第一次点击的坐标并赋值
+			document.addEventListener("touchstart", function(e){
+				y = e.changedTouches[0].screenY;
+				x = e.changedTouches[0].screenX;
+				// console.log(y);
+				// console.log(x);
+			})
+			// 记录手指滑动事件，只针对 Y 坐标 --> 即下拉状态
+			document.addEventListener("touchmove", function(e){
+				// 只有在顶部时下拉才会生效
+				if ($(document).scrollTop() == 0){
+					
+					// console.log("X--",e.changedTouches[0].screenX);
+					// console.log("Y--",e.changedTouches[0].screenY);
+					
+					if (e.changedTouches[0].screenY > y ){			// 判断是否下滑--> 大于是下拉，小于是上滑
+						// 判断是否左滑或者右滑了
+						if (e.changedTouches[0].screenX - x > 15 | x - e.changedTouches[0].screenX > 15){
+							// 隐藏
+							$(".book_update").hide();
+
+							// 重新将高度初始化，否则再次刷新时，高度依旧是之前滑动的高度
+							h = 0;
+						}else {
+							// 每下滑一次增加高度 1
+							$(".book_update").css("height",h++).show().text("开始刷新..");
+							if (h > 30){							// 当盒子高度大于30的时候就可以刷新了 --> 30 为滑动距离
+								$(".book_update").text("释放可以刷新...");
+							}else{
+								// 假如没有滑到 30 就松开了手指
+								document.addEventListener("touchend", function(e){
+									// 隐藏并初始化
+									$(".book_update").hide();
+									h = 0;
+								})
+							}
+						}
+						
+					}
+				}
+				
+			})
+		} 
+		// 监控手指停止下拉动作
+		document.addEventListener("touchend", function(){
+			// 当下拉超过 30 的高度并松开了手指则执行这里
+			if (h > 30) {
+				// var htmlstr = ""
+				$(".book_update").text("正在刷新...");
+				// 2秒后隐藏并初始化高度
+				setTimeout(function(){
+					$(".book_update").hide();
+					h = 0;
+				}, 2000);
+				// 此处执行与后端交互的数据
+			}
+			
+		})
+		
+		
+
+	})
+</script>
+<body>
+    <div class="book_update"></div>
+
+</body>
+
+
+</html>

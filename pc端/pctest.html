@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        background-color: #6b6a6a;
+        width: 100%;
+        height: 100%;
+        min-width: 600px;
+        min-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        
+      }
+
+      .header {
+        /* position: absolute; */
+        background-color: #fff;
+        place-items: center;
+        display: flex;
+        flex-direction: row;
+        border-radius: 5px;
+        margin:20px;
+        gap: 15px;
+        text-align: center;
+        line-height: 100vimn;
+        overflow: hidden;
+      }
+      .footer{
+        display: flex; 
+         flex-direction: row;
+         gap: 15px;
+         overflow: hidden;
+         place-items: center;
+        margin:20px;
+        height: 100px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        width:100%;
+        
+      }
+      .p1{
+        
+       font-size: 30px ;
+       font-weight: bold;
+      }
+      .p2{
+        color: #8d8888;
+      }
+
+      .section {
+        width: 100%;
+        height: 100%;
+        flex: 1;
+        overflow: hidden;
+       
+      }
+
+      .text-bg1 {
+        
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 5px;
+        color: #fff;
+        padding: 0 2vmin;
+        background: #2c80fc center;
+
+        background-repeat: no-repeat;
+      }
+
+      .autocaidan {
+        display: flex;
+        /* flex-wrap: wrap; */
+      }
+
+      .autocaidan1 {
+        
+        place-items: center;
+        justify-content: start;
+        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        min-width: 25%;
+        flex: auto;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-1.png) no-repeat center center;
+        overflow: hidden;
+        background-size: cover;
+      }
+
+      .autocaidan2 {
+        place-items: center;
+        margin: 5px;
+        justify-content: start;
+
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        flex: auto;
+        min-width: 25%;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-2.png) no-repeat center center;
+        overflow: hidden;
+        background-size: cover;
+      }
+
+      .autocaidan3 {
+        justify-content: start;
+        place-items: center;
+        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        flex: auto;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-3.png) no-repeat center center;
+        overflow: hidden;
+        background-size: cover;
+      }
+
+      .autocaidan4 {
+        justify-content: start;
+        place-items: center;
+        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        flex: auto;
+        width: 0;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-4.png) no-repeat center center;
+        overflow: hidden;
+
+        background-size: cover;
+      }
+
+      ul > li {
+        place-items: center;
+        font-size: 20px;
+        transform: translate(25%, 65%);
+        list-style: none;
+        
+        font-weight: bold;
+        color: #fff;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        /* border: 10px solid hsla(0, 0%, 100%, .5); */
+      }
+      .li1:hover,.li2:hover,.li3:hover,.li4:hover{
+         
+        place-items: center;
+        font-size: 20px;
+        transform: translate(25%, 65%);
+        list-style: none;
+        
+        font-weight: bold;
+        
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 255);
+       
+      }
+     .li1>p:hover{
+        color:#3d2ec7
+     }
+     .li2>p:hover{
+        color:#14b2c1
+     }
+     .li3>p:hover{
+        color:#2b76e6
+     }
+     .li4>p:hover{
+        color:#7f4cbe
+     }
+
+      .autocaidan p {
+        /* margin:auto; */
+        /* text-align: center; */
+        line-height: 42px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="text-bg1">班级</div>
+        <div><p class="p1">国家管网集团北方管道有限责任公司西安输油气分公司焊接技术骨干实操培训班</p></div>
+        <div><p class="p2">项目类型:文化教育</p></div>
+      </div>
+
+      <div class="section">
+        <div class="autocaidan">
+          <ul class="autocaidan1">
+            <li class="li1">
+              <p >班级信息</p>
+            </li>
+            <li class="li1">
+              <p>班级收支</p>
+              <p></p>
+            </li>
+            <li class="li1">
+              <p>课酬管理</p>
+            </li>
+            <li class="li1">
+              <p>课程方案</p>
+            </li>
+            <li class="li1">
+              <p>班级结算</p>
+            </li>
+            <li class="li1">
+              <p>审核管理</p>
+            </li>
+          </ul>
+          <ul class="autocaidan2">
+            <li class="li2">
+              <p>&nbsp;&nbsp;用餐&nbsp;&nbsp;</p>
+            </li>
+            <li class="li2">
+              <p>&nbsp;&nbsp;差旅&nbsp;&nbsp;</p>
+            </li>
+            <li class="li2">
+              <p>&nbsp;&nbsp;用车&nbsp;&nbsp;</p>
+            </li>
+            <li class="li2">
+              <p>&nbsp;&nbsp;教室&nbsp;&nbsp;</p>
+            </li>
+            <li class="li2">
+              <p>体育馆</p>
+            </li>
+            <li class="li2">
+              <p>&nbsp;&nbsp;机房&nbsp;&nbsp;</p>
+            </li>
+          </ul>
+          <ul class="autocaidan3">
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;物资&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;教学&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;印刷&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;扩印&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;图书&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;合同&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;演艺&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;舞台&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li class="li3">
+              <p>外出培训</p>
+            </li>
+          </ul>
+          <ul class="autocaidan4">
+            <li class="li4">
+              <p>学校管理</p>
+            </li>
+            <li class="li4">
+              <p>后勤管理</p>
+            </li>
+            <li class="li4">
+              <p>证书设置</p>
+            </li>
+            <li class="li4">
+              <p>意见箱&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer">
+      <div>
+        <input type="radio" name="a" value="pass" id="pass">
+        <label for="pass">通过</label>
+        <input type="radio" name="a" value="notpass" id="notpass">
+        <label for="notpass">不通过</label>
+    
+      </div>
+      <div></div>
+      <div></div>
+      </div>
+    </div>
+    <script>
+
+    </script>
+  </body>
+</html>

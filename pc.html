@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        min-width: 600px;
+        min-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header,
+      .footer {
+        /* background-color: greenyellow; */
+        text-align: center;
+        line-height: 100vimn;
+      }
+
+      .section {
+        width: 100%;
+        height: 100%;
+
+        flex: 1;
+        overflow: hidden;
+        /* background-color: green; */
+      }
+
+      .text-bg1 {
+        width: 20vmin;
+        /* float:left; */
+        font-size: 5vmin;
+        font-weight: bold;
+        border-radius: 5px;
+        color: #fff;
+        padding: 0 2vmin;
+        background: #2c80fc center;
+
+        background-repeat: no-repeat;
+      }
+
+      .autocaidan {
+        display: flex;
+      }
+
+      .autocaidan1 {
+        place-items: center;
+        justify-content: start;
+        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        min-width: 25%;
+        flex: auto;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-1.png) no-repeat center center;
+        overflow: hidden;
+        background-size: cover;
+      }
+
+      .autocaidan2 {
+        place-items: center;
+        margin: 5px;
+        justify-content: start;
+
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        flex: auto;
+        min-width: 25%;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-2.png) no-repeat center center;
+        overflow: hidden;
+        background-size: cover;
+      }
+
+      .autocaidan3 {
+        justify-content: start;
+        place-items: center;
+        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(5, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        flex: auto;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-3.png) no-repeat center center;
+        overflow: hidden;
+        background-size: cover;
+      }
+
+      .autocaidan4 {
+        justify-content: start;
+        place-items: center;
+        margin: 5px;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: 30px 30px;
+        gap: 15px;
+        flex: auto;
+        width: 0;
+        height: 120px;
+        border-radius: 10px;
+        background: url(./image/bg-menu-4.png) no-repeat center center;
+        overflow: hidden;
+
+        background-size: cover;
+      }
+
+      ul > li {
+        /* width: 40px;
+        height: 40px; */
+        place-items: center;
+        font-size: 20px;
+        transform: translate(25%, 65%);
+        list-style: none;
+        /* line-height :30px; */
+        /* text-align: center; */
+        font-weight: bold;
+        color: #fff;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.2);
+        /* border: 10px solid hsla(0, 0%, 100%, .5); */
+        background-clip: padding-box;
+      }
+      
+
+      .autocaidan p {
+        /* margin:auto; */
+        /* text-align: center; */
+        line-height: 42px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="text-bg1">班级</div>
+      </div>
+
+      <div class="section">
+        <div class="autocaidan">
+          <ul class="autocaidan1">
+            <li>
+              <p>班级信息</p>
+            </li>
+            <li>
+              <p>班级收支</p>
+              <p></p>
+            </li>
+            <li>
+              <p>课酬管理</p>
+            </li>
+            <li>
+              <p>课程方案</p>
+            </li>
+            <li>
+              <p>班级结算</p>
+            </li>
+            <li>
+              <p>审核管理</p>
+            </li>
+          </ul>
+          <ul class="autocaidan2">
+            <li>
+              <p>&nbsp;&nbsp;用餐&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;差旅&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;用车&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;教室&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>体育馆</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;机房&nbsp;&nbsp;</p>
+            </li>
+          </ul>
+          <ul class="autocaidan3">
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;物资&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;教学&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;印刷&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;扩印&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;图书&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;合同&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;演艺&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>&nbsp;&nbsp;&nbsp;&nbsp;舞台&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+            <li>
+              <p>外出培训</p>
+            </li>
+          </ul>
+          <ul class="autocaidan4">
+            <li>
+              <p>学校管理</p>
+            </li>
+            <li>
+              <p>后勤管理</p>
+            </li>
+            <li>
+              <p>证书设置</p>
+            </li>
+            <li>
+              <p>意见箱&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer"></div>
+    </div>
+  </body>
+</html>

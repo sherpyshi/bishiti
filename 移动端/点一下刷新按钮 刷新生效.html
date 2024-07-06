@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, 
+    user-scalable=no,maximum-scale=1.0,minium-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 620px;
+        background-color: #5555;
+      }
+      u,
+      li {
+        list-style: none;
+        img {
+          display: block;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #5555;
+      }
+      .search-wrap {
+        /* display: flex; */
+        /* justify-content: center;
+        align-items: center; */
+        /* padding: 50px 0; */
+        height: 60px;
+        position: relative;
+        /* overflow: hidden; */
+      }
+
+      .search-saoma {
+        position: absolute;
+        top: 0;
+        right: 0;
+        /* background-color: pink; */
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        background: url(./img/扫码.png) no-repeat;
+        background-size: 40px 40px;
+      }
+      .search {
+        position: relative;
+        height: 40px;
+        margin: 0 0 50px;
+        margin-right: 50px;
+        border-radius: 20px;
+        background-color: #fff;
+        margin-top: 10px;
+      }
+      .search-input {
+        /* flex: 1; */
+        margin-left: 60px;
+        height: 40px;
+        line-height: 40px;
+        box-sizing: border-box;
+        border: none;
+        box-shadow: none;
+        outline: none;
+      }
+      .search-icon {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: blue;
+        background: url(./img/search.png) no-repeat;
+        background-size: 20px 20px;
+      }
+
+      footer {
+        /* display: none; */
+        width: 100%;
+        position: fixed;
+        box-sizing: border-box;
+        padding: 0px 15px;
+        height: 45px;
+        bottom: 0px;
+        
+        z-index: 222;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+      }
+      footer a {
+        width: 20%;
+        display: flex;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 10px;
+        color: #162cab;
+      }
+      footer img {
+        width: 20px;
+        height: 20px;
+      }
+      .refreshText {
+        position: absolute;
+        width: 100%;
+        line-height: 80px;
+        text-align: center;
+        left: 0;
+        top: 0;
+        transform: translateY(-80px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="refreshText"></div>
+    <div class="search-wrap">
+      <!-- <div class="search-btn"></div> -->
+      <div class="search">
+        <div class="search-icon"></div>
+        <input type="text" class="search-input" />
+      </div>
+      <div class="search-saoma"></div>
+    </div>
+
+    <footer >
+      <a href="#">
+        <img src="./img/首页.png" alt="" />
+        <span>首页</span>
+      </a>
+      <a href="#">
+        <img src="./img/课程.png" alt="" />
+        <span>课程</span>
+      </a>
+      <a href="#">
+        <img src="./img/课表.png" alt="" />
+        <span>课表</span>
+      </a>
+      <a href="#">
+        <img src="./img/云盘.png" alt="" />
+        <span>云盘</span>
+      </a>
+      <a href="#">
+        <img src="./img/mine.png" alt="" />
+        <span>我的</span>
+      </a>
+    </footer>
+  </body>
+
+  <script>
+    window.onload = function () {
+      
+      let refreshText = document.querySelector(".refreshText");
+      let body = document.body;
+      let startY = 0; 
+      let endY = 0; 
+      let flag = false; 
+      body.addEventListener("touchstart", function (e) {
+        startY = e.touches[0].pageY;
+       e.preventDefault();
+      },false);
+      body.addEventListener("touchmove", function (e) {
+        if (isTop() && e.touches[0].pageY - startY > 20) {
+          flag =true;
+          document.body.style.overflow = "hidden";
+          refreshText.style.height = "80px";
+          body.style.transform = "translateY(80px)";
+          body.style.transition = "all ease 0.5s";
+          refreshText.innerHTML = "释放立即刷新";
+        //   footer.style.bottom="0px";
+        }
+      },false);
+
+      body.addEventListener("touchend", function (e) {
+        if (isTop() && flag) {
+          refreshText.innerHTML = "正在刷新...";
+          setTimeout(function () {
+            body.style.transform = "translateY(0)";
+            document.body.style.overflow = "auto";
+          
+            
+          }, 1000);
+        }
+      },false);
+
+      function isTop() {
+        let notop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        return notop === 0 ? true : false;
+      }
+    };
+  </script>
+</html>

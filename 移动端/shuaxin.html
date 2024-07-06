@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .list {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+  .list li {
+    list-style-type: none;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+  }
+</style>
+<body>
+  <div class="box">
+    <ul class="list">
+      <li>1111</li>
+      <li>2222</li>
+      <li>3333</li>
+      <li>4444</li>
+    </ul>
+  </div>
+  <script>
+    /* 
+    e.touches： touchlist触摸点列表, 存储着触摸点对象touch
+    */
+    const box = document.querySelector('.box')
+    const list = document.querySelector('.list')
+    // 按下屏幕的位置
+    let touchStartPosition = 0
+   
+    // touchstart事件
+    box.addEventListener('touchstart', function (e) {
+      let touch = e.touches[0]
+      touchStartPosition = touch.pageY
+      // console.log(touchStartPosition)
+    })
+    // touchmove事件
+    box.addEventListener('touchmove', function (e) {
+      let touch = e.touches[0]
+      // 列表的top值等于列表相对于box的偏移量+滑动的距离
+      list.style.top = list.offsetTop + touch.pageY - touchStartPosition + 'px'
+      // 实现平滑的滑动
+      touchStartPosition = touch.pageY
+    })
+    // touchend事件
+    box.addEventListener('touchend', function (e) {
+      let top = list.offsetTop
+      if (top > 70) {
+        // 在此处调用刷新后的回调
+        console.log('刷新')
+      } 
+      if (top > 0) {
+        // 通过定时器平滑的将list的top = 0
+        let timer = setInterval(() => {
+          list.style.top = top-- + 'px'
+          if (top <= 0) {
+            clearInterval(timer)
+          }
+        })
+      }
+    })
+  </script>
+</body>
+</html>

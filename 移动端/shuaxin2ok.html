@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="chenl" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .refresh {
+        position: absolute;
+        width: 100%;
+        line-height: 50px;
+        text-align: center;
+        left: 0;
+        top: 0;
+      }
+      #refreshContainer li {
+        background-color: #eee;
+        padding: 20px 10px;
+        border-bottom: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main_container">
+      <p class="refresh">122</p>
+      <ul id="refreshContainer">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+      </ul>
+    </div>
+    <script>
+      (function (window) {
+        var refreshContainer = document.getElementById("refreshContainer");
+        var refreshText = document.querySelector(".refresh");
+        // 初始位置
+        var startPos = 0;
+        //下拉位置
+        var endPos = 0;
+        refreshContainer.addEventListener("touchstart", function (e) {
+          startPos = e.touches[0].pageY;
+          refreshContainer.style.position = "relative";
+          refreshContainer.style.transition = "transform .5s ease";
+        });
+ 
+        refreshContainer.addEventListener("touchmove", function (e) {
+          endPos = e.touches[0].pageY;
+          var distance = endPos - startPos;
+          if (distance > 0 && distance < 60) {
+            refreshText.innerText = "下拉";
+            refreshContainer.style.transform = "translateY(" + distance + "px)";
+          } else if (distance > 60) {
+            refreshText.innerText = "释放";
+          }
+        });
+        refreshContainer.addEventListener("touchend", function (e) {
+          refreshContainer.style.transition = "transform 0.5s ease-in-out 1s";
+          refreshContainer.style.transform = "translateY(0px)";
+          refreshText.innerText = "更新";
+        });
+      })(window);
+    </script>
+  </body>
+</html>
+ 
+ 
